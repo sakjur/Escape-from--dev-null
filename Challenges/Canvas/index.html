@@ -1,0 +1,93 @@
+<html>
+<head>
+</head>
+<body>
+<canvas id="twocircles" width="400" height="640">
+</canvas>
+<script>
+	onepos = 15;
+	var canvaspaper = document.getElementById('twocircles');
+	var one 	= canvaspaper.getContext('2d');
+	one.fillStyle="#0000FF";
+	one.beginPath();
+	one.arc(onepos, 15, 15, 0, Math.PI*2, true)
+	one.closePath();
+	one.fill();
+ 
+	function onemoveRight(){
+		one.clearRect(onepos-15, 0, 30, 30);
+		onepos = onepos + 5;
+		one.fillStyle="#0000FF";
+		one.beginPath();
+		one.arc(onepos, 15, 15, 0, Math.PI*2, true);
+		one.closePath();
+		one.fill();
+		
+		if(onepos < 375) {
+			setTimeout("onemoveRight();", 50);
+		} else {
+			onemoveLeft();
+		}
+	}
+	
+	function onemoveLeft(){
+		one.clearRect(onepos-15, 0, 30, 30);
+		onepos = onepos - 5;
+		one.fillStyle="#0000FF";
+		one.beginPath();
+		one.arc(onepos, 15, 15, 0, Math.PI*2, true);
+		one.closePath();
+		one.fill();
+		
+		if(onepos > 15) {
+			setTimeout("onemoveLeft();", 50);
+		} else {
+			onemoveRight();
+		}
+	}
+	onemoveRight();	
+	
+	twopos = 50;
+	var two		= canvaspaper.getContext('2d');
+	two.fillStyle="#000000";
+	two.beginPath();
+	two.arc(twopos, 15, 15, 0, Math.PI*2, true)
+	two.closePath();
+	two.fill();
+	
+	function twomoveRight(){
+		two.clearRect(twopos-15, 0, 30, 30);
+		twopos = twopos + 5;
+		two.fillStyle="#000000";
+		two.beginPath();
+		two.arc(twopos, 15, 15, 0, Math.PI*2, true);
+		two.closePath();
+		two.fill();
+		
+		if(twopos < 375) {
+			setTimeout("twomoveRight();", 50);
+		} else {
+			twomoveLeft();
+		}
+	}
+	
+	function twomoveLeft(){
+		two.clearRect(twopos-15, 0, 30, 30);
+		twopos = twopos - 5;
+		two.fillStyle="#000000";
+		two.beginPath();
+		two.arc(twopos, 15, 15, 0, Math.PI*2, true);
+		two.closePath();
+		two.fill();
+		
+		if(twopos > 15) {
+			setTimeout("twomoveLeft();", 50);
+		} else {
+			twomoveRight();
+		}
+	}
+	twomoveRight();	
+	
+</script>
+</body>
+</html>
