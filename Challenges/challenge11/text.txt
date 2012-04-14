@@ -1,0 +1,4 @@
+def output(data, format):
+  func = "output_" + format
+  globals()[func](data)
+
